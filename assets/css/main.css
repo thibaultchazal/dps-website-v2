@@ -1,0 +1,9 @@
+.v-application {
+    font-family: 'Red Hat Display', sans-serif;
+}
+h1, h2, h3, h4, h5{
+    font-family: 'Sono-Medium', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: url('~assets/fonts/Sono-Medium.ttf') format('truetype');
+}
