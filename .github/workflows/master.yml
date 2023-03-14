@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Production Build and Deploy to S3
+name: Generate static files and Deploy to Scaleway Object Storage
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -43,4 +43,4 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
-        AWS_S3_BUCKET: https://blog-dps.s3.fr-par.scw.cloud
+        AWS_S3_BUCKET: blog-dps.s3.fr-par.scw.cloud
