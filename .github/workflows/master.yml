@@ -44,4 +44,3 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
         AWS_S3_BUCKET: https://blog-dps.s3.fr-par.scw.cloud
-        SOURCE_DIR: "dist"
