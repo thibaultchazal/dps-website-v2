@@ -1,10 +1,12 @@
 <template>
   <v-container>
     <v-row>
+      {{ config.apiBaseUrl }}
       <v-col
         v-for="(article, index) in data?.data"
         :key="article.id"
         :cols="index % 2 ? 8 : 4">
+        {{ config.apiBaseUrl + article.attributes.cover.data.attributes.formats.large.url }}
         <v-card
           density="comfortable"
           elevation="3"
