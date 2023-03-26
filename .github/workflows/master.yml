@@ -39,7 +39,7 @@ jobs:
     - name: Production Generation
       run: |
         npm run generate
-    
+
     - name: Deploy to Scaleway Object Storage
       uses: jakejarvis/s3-sync-action@master
       with:
