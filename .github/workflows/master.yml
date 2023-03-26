@@ -49,7 +49,7 @@ jobs:
         cd -
 
     - name: Install awscli_plugin_endpoint
-      run: pip3 install --no-deps awscli_plugin_endpoint && pip3 show awscli_plugin_endpoint
+      run: pip3 install awscli_plugin_endpoint && pip3 show awscli_plugin_endpoint
 
     - name: copy ScaleWay AWS CLI configuration
       run: |
