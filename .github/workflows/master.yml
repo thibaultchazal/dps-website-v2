@@ -32,6 +32,13 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+      
+    - name: Install dependencies
+      run: npm install
+
+    - name: Production Generation
+      run: |
+        npm run generate
 
     - name: Install Aws CLI v2
       run: |
@@ -48,16 +55,9 @@ jobs:
       run: |
         mkdir ~/.aws
         cp ./aws/config ~/.aws/config
-      
-    - name: Install dependencies
-      run: npm install
-
-    - name: Production Generation
-      run: |
-        npm run generate
     
     - name: Push to Scaleway storage
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
-      run: /usr/local/bin/aws s3 sync --delete ./public/ s3://blog-dps
+      run: /usr/local/bin/aws s3 sync --delete ./public/ s3://blog-dps/
