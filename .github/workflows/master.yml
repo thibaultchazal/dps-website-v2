@@ -32,6 +32,22 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: Install Aws CLI v2
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip"
+          cd /tmp
+          unzip awscliv2.zip
+          sudo ./aws/install --update
+          cd -
+
+    - name: Install awscli_plugin_endpoint
+      run: pip3 install awscli_plugin_endpoint && pip3 show awscli_plugin_endpoint
+
+    - name: copy ScaleWay AWS CLI configuration
+      run: |
+        mkdir ~/.aws
+        cp ./aws/config ~/.aws/config
       
     - name: Install dependencies
       run: npm install
@@ -39,13 +55,9 @@ jobs:
     - name: Production Generation
       run: |
         npm run generate
-
-    - name: Deploy to Scaleway Object Storage
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks --delete
+    
+    - name: Push to Scaleway storage
       env:
-        AWS_S3_ENDPOINT: https://blog-dps.s3.fr-par.scw.cloud
-        AWS_S3_BUCKET: 
         AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
+      run: /usr/local/bin/aws s3 sync --delete ./public/ s3://blog-dps
