@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-row>
+      config.public.apiBaseUrl: {{ config.public.apiBaseUrl }}
       <v-col
         v-for="(article, index) in data?.data"
         :key="article.id"
