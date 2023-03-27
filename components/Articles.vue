@@ -1,12 +1,10 @@
 <template>
   <v-container>
     <v-row>
-      {{ config.apiBaseUrl }}
       <v-col
         v-for="(article, index) in data?.data"
         :key="article.id"
         :cols="index % 2 ? 8 : 4">
-        {{ config.apiBaseUrl + article.attributes.cover.data.attributes.formats.large.url }}
         <v-card
           density="comfortable"
           elevation="3"
@@ -15,7 +13,7 @@
           <v-img
             v-if="article.attributes.cover.data"
             height="200"
-            :src="config.apiBaseUrl + article.attributes.cover.data.attributes.formats.large.url"
+            :src="config.apiBaseUrl + article.attributes.cover.data.attributes.url"
             cover
           />
           <v-card-subtitle v-if="article.attributes.Category" class="pt-2"><v-chip :color="article.attributes.Category.data.attributes.color">{{ article.attributes.Category.data.attributes.name }}</v-chip></v-card-subtitle>
@@ -39,13 +37,13 @@ interface strapiResponse{
 interface Article{
     id: string,
     attributes:{
-        title: string,
-        content: string,
-        excerpt: string,
-        cover: Cover,
-        Category: Category,
-        createdAt: string,
-        updatedAt: string
+      title: string,
+      content: string,
+      excerpt: string,
+      cover: Cover,
+      Category: Category,
+      createdAt: string,
+      updatedAt: string
     }
 }
 interface Category{
@@ -66,6 +64,7 @@ interface Cover{
       name: string,
       alternativeText: string,
       caption: string,
+      url: string,
       formats: {
         thumbnail: {
           url: string
@@ -86,6 +85,5 @@ interface Cover{
   }
 }
 const config = useRuntimeConfig()
-const { data } = await useFetch<strapiResponse>(config.apiBaseUrl + '/api/articles?populate=*');
-
+const { data } = await useFetch<strapiResponse>(config.public.apiBaseUrl + '/api/articles?populate=*');
 </script>
