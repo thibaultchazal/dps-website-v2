@@ -37,8 +37,7 @@ jobs:
       run: npm install
 
     - name: Production Generation
-      run: |
-        npm run generate
+      run: npm run generate
 
     - name: Install Aws CLI v2
       run: pip3 install awscli

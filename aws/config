@@ -1,5 +1,4 @@
 [plugins]
-cli_legacy_plugin_path = /home/runner/.local/lib/python3.10/site-packages
 endpoint = awscli_plugin_endpoint
 
 [default]
