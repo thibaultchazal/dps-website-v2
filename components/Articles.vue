@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-row>
-      config.public.apiBaseUrl: {{ config.public.apiBaseUrl }}
       <v-col
         v-for="(article, index) in data?.data"
         :key="article.id"
@@ -17,7 +16,7 @@
             :src="config.apiBaseUrl + article.attributes.cover.data.attributes.url"
             cover
           />
-          <v-card-subtitle v-if="article.attributes.Category" class="pt-2"><v-chip :color="article.attributes.Category.data.attributes.color">{{ article.attributes.Category.data.attributes.name }}</v-chip></v-card-subtitle>
+          <v-card-subtitle v-if="article.attributes.Category.data" class="pt-2"><v-chip :color="article.attributes.Category.data.attributes.color">{{ article.attributes.Category.data.attributes.name }}</v-chip></v-card-subtitle>
           <v-card-title
             style="white-space: normal;">
             <h2>{{ article.attributes.title }}</h2>
