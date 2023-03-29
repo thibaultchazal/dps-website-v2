@@ -21,5 +21,8 @@ export default defineNuxtConfig({
     },
     build: {
       transpile: ['vuetify']
-    }
+    },
+    modules: [
+      '@nuxt/image-edge',
+    ]
 })
