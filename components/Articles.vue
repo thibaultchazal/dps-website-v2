@@ -4,7 +4,7 @@
       <v-col
         v-for="(article, index) in data?.data"
         :key="article.id"
-        :cols="index % 2 ? 8 : 4">
+        :cols="index === 0 ? 12 : 6">
         <v-card
           density="comfortable"
           elevation="3"
@@ -16,7 +16,13 @@
             :src="config.apiBaseUrl + article.attributes.cover.data.attributes.url"
             cover
           />
-          <v-card-subtitle v-if="article.attributes.Category.data" class="pt-2"><v-chip :color="article.attributes.Category.data.attributes.color">{{ article.attributes.Category.data.attributes.name }}</v-chip></v-card-subtitle>
+          <v-card-subtitle v-if="article.attributes.categories.data.length" class="pt-2">
+            <v-chip
+              v-for="category of article.attributes.categories.data"
+              :color="category.attributes.color">
+              {{category.attributes.name }}
+            </v-chip>
+          </v-card-subtitle>
           <v-card-title
             style="white-space: normal;">
             <h2>{{ article.attributes.title }}</h2>
@@ -41,20 +47,21 @@ interface Article{
       content: string,
       excerpt: string,
       cover: Cover,
-      Category: Category,
+      categories: Categories,
       createdAt: string,
       updatedAt: string
     }
 }
+interface Categories{
+  data: [Category]
+}
 interface Category{
-  data: {
-    id: string,
-    attributes:{
-      name: string,
-      color: string,
-      createdAt: string,
-      updatedAt: string
-    }
+  id: string,
+  attributes:{
+    name: string,
+    color: string,
+    createdAt: string,
+    updatedAt: string
   }
 }
 interface Cover{
