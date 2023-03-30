@@ -7,20 +7,22 @@
         :cols="index === 0 ? 12 : 6">
         <v-card
           density="comfortable"
-          elevation="3"
+          elevation="2"
           :to="'articles/' + article.id"
+          variant="outlined"
+          style="background: #fcf2cf;"
         >
           <v-img
             v-if="article.attributes.cover.data"
             height="200"
-            :src="config.apiBaseUrl + article.attributes.cover.data.attributes.url"
+            :src="article.attributes.cover.data.attributes.formats.small?.url ?? article.attributes.cover.data.attributes.url"
             cover
           />
           <v-card-subtitle v-if="article.attributes.categories.data.length" class="pt-2">
             <v-chip
               v-for="category of article.attributes.categories.data"
               :color="category.attributes.color">
-              {{category.attributes.name }}
+              <b>{{category.attributes.name }}</b>
             </v-chip>
           </v-card-subtitle>
           <v-card-title

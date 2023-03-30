@@ -7,6 +7,14 @@ name: Generate static files and Deploy to Scaleway Object Storage
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ source ]
+  workflow_dispatch:
+
+  # Allows external webhook trigger
+  repository_dispatch:
+    types:
+      - webhook
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
