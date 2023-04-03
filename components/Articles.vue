@@ -8,15 +8,15 @@
         <v-card
           density="comfortable"
           elevation="2"
-          :to="'articles/' + article.id"
+          :to="'articles/' + article.attributes.slug"
           variant="outlined"
           style="background: #fcf2cf;"
         >
           <v-img
             v-if="article.attributes.cover.data"
-            height="200"
-            :src="article.attributes.cover.data.attributes.formats.small?.url ?? article.attributes.cover.data.attributes.url"
+            :aspect-ratio="30/9"
             cover
+            :src="article.attributes.cover.data.attributes.formats.small?.url ?? article.attributes.cover.data.attributes.url"
           />
           <v-card-subtitle v-if="article.attributes.categories.data.length" class="pt-2">
             <v-chip
@@ -30,8 +30,14 @@
             <h2>{{ article.attributes.title }}</h2>
           </v-card-title>
           <v-card-text>
-            {{ article.attributes.excerpt }}
+            <p class="article-excerpt">{{ article.attributes.excerpt }}</p>
           </v-card-text>
+          <v-card-actions>
+            <v-btn
+              variant="text"
+              size="small"
+            >Lire la suite -></v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -39,60 +45,16 @@
 </template>
 
 <script lang="ts" setup>
-interface strapiResponse{
-    data: [Article]
-}
-interface Article{
-    id: string,
-    attributes:{
-      title: string,
-      content: string,
-      excerpt: string,
-      cover: Cover,
-      categories: Categories,
-      createdAt: string,
-      updatedAt: string
-    }
-}
-interface Categories{
-  data: [Category]
-}
-interface Category{
-  id: string,
-  attributes:{
-    name: string,
-    color: string,
-    createdAt: string,
-    updatedAt: string
-  }
-}
-interface Cover{
-  data: {
-    id: string,
-    attributes:{
-      name: string,
-      alternativeText: string,
-      caption: string,
-      url: string,
-      formats: {
-        thumbnail: {
-          url: string
-        },
-        small: {
-          url: string
-        },
-        medium: {
-          url: string
-        },
-        large: {
-          url: string
-        }
-      },
-      createdAt: string,
-      updatedAt: string
-    }
-  }
-}
+import { strapiResponse } from "@/utils/types"
 const config = useRuntimeConfig()
 const { data } = await useFetch<strapiResponse>(config.public.apiBaseUrl + '/api/articles?populate=*');
 </script>
+<style>
+.article-excerpt{
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+</style>

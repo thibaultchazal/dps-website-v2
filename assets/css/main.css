@@ -21,13 +21,13 @@ h2 {
     margin: 0;
 }
 
-@media (min-width: 1920px){
-    .v-container {
-        max-width: 1500px;
-    }
-}
 @media (min-width: 1280px){
     .v-container {
-        max-width: 1000px;
+        max-width: 1050px !important;
+    }
+}
+@media (min-width: 1920px){
+    .v-container {
+        max-width: 1500px !important;
     }
 }
