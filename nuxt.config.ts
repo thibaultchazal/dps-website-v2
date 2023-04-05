@@ -37,9 +37,10 @@ export default defineNuxtConfig({
     appConfig: {
       umami: {
         autoTrack: true,
+        ignoreLocalhost: true,
         domains: 'blog.digitalproductstudio.fr',
         id: 'b046d805-d6ad-4b3d-9bb5-e92d2122fad2',
-        host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/umami.js',
+        host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/',
       }
     }
 })

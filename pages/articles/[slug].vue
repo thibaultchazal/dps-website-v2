@@ -13,7 +13,6 @@
       cover
       :src="article?.data[0].attributes.cover.data.attributes.formats.large?.url ?? article?.data[0].attributes.cover.data.attributes.url"
       :alt="article?.data[0].attributes.cover.data.attributes.alternativeText"/>
-    />
     <v-container class="rounded-xl" style="background-color: #fff; position: relative; margin-top: -10em;">
       <v-row>
         <v-col cols="12">
