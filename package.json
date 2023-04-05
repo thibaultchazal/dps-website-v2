@@ -10,7 +10,8 @@
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-28001428.0aa03b6",
     "@types/markdown-it": "^12.2.3",
-    "nuxt": "^3.2.3"
+    "nuxt": "^3.2.3",
+    "nuxt-simple-sitemap": "^2.4.3"
   },
   "dependencies": {
     "markdown-it": "^13.0.1",

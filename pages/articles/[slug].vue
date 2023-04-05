@@ -12,11 +12,15 @@
       :aspect-ratio="30/9"
       cover
       :src="article?.data[0].attributes.cover.data.attributes.formats.large?.url ?? article?.data[0].attributes.cover.data.attributes.url"
+      :alt="article?.data[0].attributes.cover.data.attributes.alternativeText"/>
     />
     <v-container class="rounded-xl" style="background-color: #fff; position: relative; margin-top: -10em;">
       <v-row>
         <v-col cols="12">
           <h1 class="my-5">{{ article?.data[0].attributes.title }}</h1>
+          <p v-if="article?.data[0].attributes.tempsLecture" class="text-center text-grey-darken-2">
+            <span >{{ article?.data[0].attributes.tempsLecture }} minutes de lecture</span>
+          </p>
         </v-col>
         <v-col cols="12" class="px-10">
           <div class="strapi-md" v-html="md.render(article?.data[0]?.attributes?.content ||'')"></div>
@@ -48,6 +52,24 @@ const route = useRoute()
 const config = useRuntimeConfig()
 const { data: article } = await useFetch<strapiResponse>(config.public.apiBaseUrl + '/api/articles?filters\[slug\][$eq]=' + route.params.slug + '&populate=*');
 const { data: connexesArticles } = await useFetch<strapiResponse>(config.public.apiBaseUrl + '/api/articles?filters[slug][$ne]=' + route.params.slug + '&filters[categories][name][$contains]=' + article?.value?.data[0].attributes.categories.data[0]?.attributes.name + '&populate=*');
+
+const title = article?.value?.data[0].attributes.title
+const description = article?.value?.data[0].attributes.excerpt
+useHead({
+  title,
+  htmlAttrs: {
+    lang: 'fr'
+  },
+  meta: [
+    { name: 'description', content: description }
+  ],
+})
+useServerSeoMeta({
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: article?.value?.data[0].attributes.cover.data.attributes.formats.large?.url,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <style>

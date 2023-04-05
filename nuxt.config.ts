@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
           apiBaseUrl: process.env.NUXT_API_BASE_URL,
+          siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://blog.digitalproductstudio.fr',
         }
     },
     typescript: {
@@ -24,5 +25,12 @@ export default defineNuxtConfig({
     },
     modules: [
       '@nuxt/image-edge',
-    ]
+      'nuxt-simple-sitemap'
+    ],
+    image: {
+      domains: ['dps-blog-medias.s3.fr-par.scw.cloud'],
+      alias: {
+        scwS3: 'https://dps-blog-medias.s3.fr-par.scw.cloud'
+      }
+    }
 })

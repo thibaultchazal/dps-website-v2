@@ -5,6 +5,7 @@ export interface Article{
     id: string,
     attributes:{
       title: string,
+      tempsLecture: number,
       slug: string,
       content: string,
       excerpt: string,

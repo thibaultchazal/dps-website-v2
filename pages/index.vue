@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <p class="sup-title">Le blog</p>
-        <h1 id="blog-title" class="text-center ma-0">Pour vous faire progresser</h1>
+        <h1 id="blog-title">Pour vous faire progresser</h1>
         <p class="sub-title">{{description}}</p>
       </v-col>
       <v-col cols="12">
@@ -14,21 +14,22 @@
 </template>
 
 <script setup lang="ts">
-const title = "Page d'accueil du blog DPS"
+const title = "DPS | Le Blog"
 const description = "Des informations tirées d'expérience vécues et des conseils actionnables pour vous amener à mieux tiré parti de votre produit digital."
 
 useHead({
   title,
+  htmlAttrs: {
+    lang: 'fr'
+  },
   meta: [
     { name: 'description', content: description }
   ],
 })
 useServerSeoMeta({
-  title,
   ogTitle: title,
-  description,
   ogDescription: description,
-  ogImage: 'https://example.com/image.png',
+  ogImage: "/DPS-logo.webp",
   twitterCard: 'summary_large_image',
 })
 </script>

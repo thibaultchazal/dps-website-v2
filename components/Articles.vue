@@ -4,7 +4,8 @@
       <v-col
         v-for="(article, index) in posts?.data"
         :key="article.id"
-        :cols="index === 0 ? 12 : 6">
+        cols="12"
+        :md="index === 0 ? 12 : 6">
         <PostCard :article="article" />
       </v-col>
     </v-row>
