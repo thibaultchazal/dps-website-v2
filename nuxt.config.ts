@@ -27,10 +27,19 @@ export default defineNuxtConfig({
       '@nuxt/image-edge',
       'nuxt-simple-sitemap'
     ],
+    extends: ['nuxt-umami'],
     image: {
       domains: ['dps-blog-medias.s3.fr-par.scw.cloud'],
       alias: {
         scwS3: 'https://dps-blog-medias.s3.fr-par.scw.cloud'
+      }
+    },
+    appConfig: {
+      umami: {
+        autoTrack: true,
+        domains: 'blog.digitalproductstudio.fr',
+        id: 'b046d805-d6ad-4b3d-9bb5-e92d2122fad2',
+        host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/umami.js',
       }
     }
 })
