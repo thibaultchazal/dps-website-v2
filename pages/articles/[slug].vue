@@ -4,7 +4,8 @@
       id="home-btn"
       to="/"
     >
-      Retour au blog
+      <span class="d-none d-lg-flex">Retour au blog</span>
+      <img src="@/assets/icons/home.svg" style="width: 25px; height: 100%;"/>
     </v-btn>
     <v-img
       v-if="article?.data[0].attributes.cover.data"
@@ -75,8 +76,18 @@ useServerSeoMeta({
 #home-btn{
   position: fixed;
   z-index: 42;
-  top: 20px;
-  left: 30px;
+}
+@media (max-width: 1279px){
+  #home-btn{
+    bottom: 20px;
+    right: 30px;
+  }
+}
+@media (min-width: 1280px){
+  #home-btn{
+    top: 20px;
+    left: 30px;
+  }
 }
 .strapi-md h2 {
   margin: 1.4em 0 .6em;

@@ -40,13 +40,15 @@ useServerSeoMeta({
     width: fit-content;
     margin: auto;
   }
-  #blog-title::after {
-      content:url('~/assets/img/group16.svg');
-      position:absolute;
-      z-index:42;
-      right: -25px;
-      top: -15px;
-      width: 20px;
+  @media (min-width: 1280px){
+    #blog-title::after {
+        content:url('~/assets/img/group16.svg');
+        position:absolute;
+        z-index:42;
+        right: -25px;
+        top: -15px;
+        width: 20px;
+    }
   }
   .sup-title{
     text-align: center;
