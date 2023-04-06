@@ -23,6 +23,16 @@ export default defineNuxtConfig({
     build: {
       transpile: ['vuetify']
     },
+    extends: ['nuxt-umami'],
+    appConfig: {
+      umami: {
+        autoTrack: true,
+        ignoreLocalhost: true,
+        domains: 'blog.digitalproductstudio.fr',
+        id: 'b046d805-d6ad-4b3d-9bb5-e92d2122fad2',
+        host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/umami.js',
+      }
+    },
     modules: [
       '@nuxt/image-edge',
       'nuxt-simple-sitemap'
@@ -33,14 +43,4 @@ export default defineNuxtConfig({
         scwS3: 'https://dps-blog-medias.s3.fr-par.scw.cloud'
       }
     },
-    extends: ['nuxt-umami'],
-    appConfig: {
-      umami: {
-        autoTrack: true,
-        ignoreLocalhost: true,
-        domains: 'blog.digitalproductstudio.fr',
-        id: 'b046d805-d6ad-4b3d-9bb5-e92d2122fad2',
-        host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/umami.js',
-      }
-    }
 })
