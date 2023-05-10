@@ -17,6 +17,13 @@ export default defineNuxtConfig({
       head: {
         meta: [
           { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        ],
+        script:[
+          {
+            hid: 'hubspot',
+            src: 'https://js-eu1.hs-scripts.com/139522171.js',
+            defer: true
+          }
         ]
       }
     },
