@@ -40,6 +40,16 @@
         </v-col>
       </v-row>
     </v-container>
+    <form name="register-email" method="POST" data-netlify="true">
+      <p>
+        Vous souhaitez recevoir en avant première les nouveaux articles ?<br/>
+        Laissez nous vos coordonées et nous vous enverrons un email la veille de chaque nouvelle publication !
+        <label>Votre adresse email: <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <button type="submit">J'en suis !</button>
+      </p>
+    </form>
   </div>
 </template>
 
