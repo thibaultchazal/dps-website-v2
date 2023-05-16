@@ -49,7 +49,6 @@
           style="background-color: aquamarine; border-radius: 10px; font-size: smaller;">
           <form
             name="register-email"
-            ref="registerEmail"
             method="post"
             action="/success"
             data-netlify="true"
@@ -63,23 +62,23 @@
             <p>
               Vous souhaitez recevoir en avant première les nouveaux articles ?<br/>
               Laissez nous vos coordonées et nous vous enverrons un email la veille de chaque nouvelle publication !
-              <v-responsive
-                class="mx-auto"
-                max-width="444"
-              >
-                <v-text-field
-                  class="mw-50 bg-white"
-                  label="Votre adresse email:"
-                  hide-details
-                  single-line
-                  density="compact"
-                  v-on:keyup.enter="onSubmit"
-                  append-inner-icon="send-icon"
-                  @click:append-inner="onSubmit"
-                ></v-text-field>
-              </v-responsive>
             </p>
-            <button hidden type="submit">J'en suis !</button>
+            <v-container class="mt-5">
+              <v-row justify="center">
+                <v-col cols="6">
+                  <v-text-field
+                    class="mw-50 bg-white"
+                    label="Votre adresse email:"
+                    hide-details
+                    single-line
+                    density="compact"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="3">
+                  <button type="submit" style="border-radius: 5px; background-color: white;" class="px-3 py-2">Envoyer</button>
+                </v-col>
+              </v-row>
+            </v-container>
           </form>
         </v-col>
       </v-row>
@@ -145,9 +144,10 @@ export default {
     }
   },
   methods: {
-    async onSubmit() {
+    async onSubmit(event: any) {
       try {
-        const formData = new FormData(this.$refs.registerEmail as HTMLFormElement);
+        event.preventDefault();
+        const formData = new FormData(event.target as HTMLFormElement);
         const formObject: Record<string, string> = {};
         formData.forEach((value, key) => {
           formObject[key] = value.toString();
@@ -166,11 +166,12 @@ export default {
           throw new Error('Response was not successful')
         }
 
-        // Say thank you
+        // Say thank you and reset reCAPTCHA
         this.emailRegistered.error = false
         this.emailRegistered.message = 'Vous êtes bien inscrit !'
         this.emailRegistered.value = true
-      } catch {
+      } catch (e) {
+        console.log(e)
         // Error message if something goes wrong
         this.emailRegistered.message = "Oups... Une erreur s'est produite. Vous pouvez essayer de rafraichir la page et réessayer. Sinon, écrivez nous à thibault@digitalproductstudio.fr !"
         this.emailRegistered.error = true
@@ -182,6 +183,8 @@ export default {
 </script>
 
 <style>
+/* @import url('@/assets/icons/send.svg'); */
+
 .send-icon {
   background-image: url('~/assets/icons/send.svg');
   background-size: 100% 100%;
