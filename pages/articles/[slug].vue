@@ -4,8 +4,8 @@
       id="home-btn"
       to="/"
     >
-      <span class="d-none d-lg-flex">Retour au blog</span>
-      <img src="@/assets/icons/home.svg" style="width: 25px; height: 100%;"/>
+      <span class="d-none d-lg-flex">Retour</span>
+      <!-- <img src="@/assets/icons/home.svg" style="width: 25px; height: 100%;"/> -->
     </v-btn>
     <v-img
       v-if="article?.data[0].attributes.cover.data"
@@ -40,16 +40,68 @@
         </v-col>
       </v-row>
     </v-container>
-    <form name="register-email" method="POST" data-netlify="true">
-      <p>
-        Vous souhaitez recevoir en avant première les nouveaux articles ?<br/>
-        Laissez nous vos coordonées et nous vous enverrons un email la veille de chaque nouvelle publication !
-        <label>Votre adresse email: <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <button type="submit">J'en suis !</button>
-      </p>
-    </form>
+    <v-container class="mt-5">
+      <v-row justify="center">
+        <v-col
+          cols="12"
+          md="10"
+          class="pa-5"
+          style="background-color: aquamarine; border-radius: 10px; font-size: smaller;">
+          <form
+            name="register-email"
+            ref="registerEmail"
+            method="post"
+            action="/success"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            @submit.prevent="onSubmit"
+          >
+            <input type="hidden" name="form-name" value="register-email" />
+            <p hidden>
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+            <p>
+              Vous souhaitez recevoir en avant première les nouveaux articles ?<br/>
+              Laissez nous vos coordonées et nous vous enverrons un email la veille de chaque nouvelle publication !
+              <v-responsive
+                class="mx-auto"
+                max-width="444"
+              >
+                <v-text-field
+                  class="mw-50 bg-white"
+                  label="Votre adresse email:"
+                  hide-details
+                  single-line
+                  density="compact"
+                  v-on:keyup.enter="onSubmit"
+                  append-inner-icon="send-icon"
+                  @click:append-inner="onSubmit"
+                ></v-text-field>
+              </v-responsive>
+            </p>
+            <button hidden type="submit">J'en suis !</button>
+          </form>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-snackbar
+      v-model="emailRegistered.value"
+      color="success"
+      :timeout="emailRegistered.error ? 0 : 2000"
+    >
+      {{ emailRegistered.message }}
+
+      <template v-slot:actions>
+        <v-btn
+          color="pink"
+          variant="text"
+          
+          @click="emailRegistered.value = false"
+        >
+          X
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
@@ -81,8 +133,63 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image',
 })
 </script>
+<script lang="ts">
+export default {
+  data() {
+    return {
+      emailRegistered: {
+        value: false,
+        error: false,
+        message: ''
+      },
+    }
+  },
+  methods: {
+    async onSubmit() {
+      try {
+        const formData = new FormData(this.$refs.registerEmail as HTMLFormElement);
+        const formObject: Record<string, string> = {};
+        formData.forEach((value, key) => {
+          formObject[key] = value.toString();
+        });
+        // Submit the form to Netlify
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(formObject).toString()
+        })
+
+        // Throw an error if the response was not successful
+        if (!response.ok) {
+          throw new Error('Response was not successful')
+        }
+
+        // Say thank you
+        this.emailRegistered.error = false
+        this.emailRegistered.message = 'Vous êtes bien inscrit !'
+        this.emailRegistered.value = true
+      } catch {
+        // Error message if something goes wrong
+        this.emailRegistered.message = "Oups... Une erreur s'est produite. Vous pouvez essayer de rafraichir la page et réessayer. Sinon, écrivez nous à thibault@digitalproductstudio.fr !"
+        this.emailRegistered.error = true
+        this.emailRegistered.value = true
+      }
+    }
+  }
+}
+</script>
 
 <style>
+.send-icon {
+  background-image: url('~/assets/icons/send.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+}
 #home-btn{
   position: fixed;
   z-index: 42;

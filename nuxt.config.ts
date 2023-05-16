@@ -21,7 +21,7 @@ export default defineNuxtConfig({
         script:[
           {
             hid: 'hubspot',
-            src: 'https://js-eu1.hs-scripts.com/139522171.js',
+            src: `https://js-eu1.hs-scripts.com/${process.env.NUXT_HUBSPOT_HID}.js`,
             defer: true
           }
         ]
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
         autoTrack: true,
         ignoreLocalhost: true,
         domains: 'blog.digitalproductstudio.fr',
-        id: 'b046d805-d6ad-4b3d-9bb5-e92d2122fad2',
+        id: process.env.NUXT_UMAMI_ID,
         host: 'https://dpsumamiad759dop-dps-umami.functions.fnc.fr-par.scw.cloud/umami.js',
       }
     },
@@ -45,9 +45,9 @@ export default defineNuxtConfig({
       'nuxt-simple-sitemap'
     ],
     image: {
-      domains: ['dps-blog-medias.s3.fr-par.scw.cloud'],
+      domains: [process.env.NUXT_IMG_DOMAIN],
       alias: {
-        scwS3: 'https://dps-blog-medias.s3.fr-par.scw.cloud'
+        scwS3: `https://${process.env.NUXT_IMG_DOMAIN}`
       }
     },
 })
