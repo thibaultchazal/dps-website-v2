@@ -67,6 +67,7 @@
               <v-row justify="center">
                 <v-col cols="6">
                   <v-text-field
+                    name='email'
                     class="mw-50 bg-white"
                     label="Votre adresse email:"
                     hide-details
