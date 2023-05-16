@@ -64,7 +64,7 @@
               Laissez nous vos coordonées et nous vous enverrons un email la veille de chaque nouvelle publication !
             </p>
             <v-container class="mt-5">
-              <v-row justify="center">
+              <v-row justify="center" v-if="!emailRegistered.value">
                 <v-col cols="6">
                   <v-text-field
                     name='email'
@@ -79,29 +79,16 @@
                   <button type="submit" style="border-radius: 5px; background-color: white;" class="px-3 py-2">Envoyer</button>
                 </v-col>
               </v-row>
+              <v-row v-else>
+                <v-col cols="12">
+                  <p class="text-center"><b>{{ emailRegistered.message }}</b></p>
+                </v-col>
+              </v-row>
             </v-container>
           </form>
         </v-col>
       </v-row>
     </v-container>
-    <v-snackbar
-      v-model="emailRegistered.value"
-      color="success"
-      :timeout="emailRegistered.error ? 0 : 2000"
-    >
-      {{ emailRegistered.message }}
-
-      <template v-slot:actions>
-        <v-btn
-          color="pink"
-          variant="text"
-          
-          @click="emailRegistered.value = false"
-        >
-          X
-        </v-btn>
-      </template>
-    </v-snackbar>
   </div>
 </template>
 
