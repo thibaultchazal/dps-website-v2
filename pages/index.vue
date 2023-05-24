@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const title = "DPS | Le Blog"
-const description = "Des informations tirées d'expérience vécues et des conseils actionnables pour vous amener à mieux tiré parti de votre produit digital."
+const description = "Des informations tirées d'expérience vécues et des conseils actionnables pour vous amener à mieux tirer parti de votre produit digital."
 
 useHead({
   title,
