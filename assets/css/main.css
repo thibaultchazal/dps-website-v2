@@ -1,4 +1,4 @@
-html{
+html {
     font-family: Verdana, Arial, sans-serif;
     font-size: 17px;
     line-height: 1.5;
@@ -6,6 +6,7 @@ html{
     background-color: #f8f2dd;
     letter-spacing: .3px;
 }
+
 h1 {
     font-size: 46px;
     font-weight: 500;
@@ -17,34 +18,48 @@ h2 {
     font-size: 32px;
     font-weight: 500;
     letter-spacing: 2px;
-    margin: 0;
+    margin: 1.2em 0 0.4em;
 }
+
 h3 {
     font-size: 24px;
     font-weight: 500;
     letter-spacing: 2px;
-    margin: 0;
+    margin: 1em 0 0.2em;
 }
 
-blockquote
-{
-  font-style: normal;
-  /* margin-left: 32px; */
-  border-left: 3px solid #0c003b;
-  padding-left: 10px;
-  font-style: italic;
+blockquote {
+    font-style: normal;
+    /* margin-left: 32px; */
+    border-left: 3px solid #0c003b;
+    padding-left: 10px;
+    font-style: italic;
 }
 
 a {
     color: gray;
 }
-@media (min-width: 1280px){
+
+@media (min-width: 1280px) {
     .v-container {
         max-width: 1050px !important;
     }
 }
-@media (min-width: 1920px){
+
+@media (min-width: 1920px) {
     .v-container {
         max-width: 1500px !important;
     }
+}
+
+pre {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+code {
+    font-family: 'Courier New', monospace;
 }

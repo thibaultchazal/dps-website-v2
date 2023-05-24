@@ -206,5 +206,8 @@ export default {
 .strapi-md ul {
   margin-left: 2em;
 }
+img{
+  object-fit: contain;
+}
 
 </style>
