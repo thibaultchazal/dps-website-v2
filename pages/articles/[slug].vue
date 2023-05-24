@@ -14,7 +14,7 @@
       cover
       :src="article?.data[0].attributes.cover.data.attributes.formats.large?.url ?? article?.data[0].attributes.cover.data.attributes.url"
       :alt="article?.data[0].attributes.cover.data.attributes.alternativeText"/>
-    <v-container class="rounded-xl" style="background-color: #fff; position: relative; margin-top: -10em;">
+    <v-container class="article rounded-xl" style="background-color: #fff; position: relative; margin-top: -10em;">
       <v-row>
         <v-col cols="12">
           <h1 class="my-5">{{ article?.data[0].attributes.title }}</h1>
@@ -206,7 +206,7 @@ export default {
 .strapi-md ul {
   margin-left: 2em;
 }
-img{
+.article img{
   object-fit: contain;
 }
 
