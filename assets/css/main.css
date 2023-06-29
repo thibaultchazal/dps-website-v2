@@ -39,7 +39,9 @@ blockquote {
 a {
     color: gray;
 }
-
+.img-fluid {
+  max-width: 100%;
+  height: auto; }
 @media (min-width: 1280px) {
     .v-container {
         max-width: 1050px !important;

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="93px" height="93px" viewBox="0 0 93 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Dots</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 108 0 108 108 0 108"></polygon>
+    </defs>
+    <g id="Maquettes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Maquette-DPS-V2.3" transform="translate(-118.000000, -1293.000000)">
+            <g id="Team" transform="translate(118.000000, 880.000000)">
+                <g id="Group" transform="translate(0.000000, 3.000000)">
+                    <g id="Dots" transform="translate(0.000000, 410.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Duplicate-control"></g>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="1.5" cy="91.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="19.5" cy="91.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="37.5" cy="91.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="55.5" cy="91.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="73.5" cy="91.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="1.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="19.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="37.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="55.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="73.5" r="1.5"></circle>
+                        <circle id="Oval" fill="#F09458" mask="url(#mask-2)" cx="91.5" cy="91.5" r="1.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
