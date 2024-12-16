@@ -782,6 +782,7 @@ h6 {
   border-image-slice: 1;
   background: #C1932B;
   -webkit-background-clip: text;
+  background-clip: text;
   text-fill-color: transparent !important;
   transition: all 0.8s ease;
 }
@@ -802,6 +803,7 @@ h6 {
   border-image-slice: 1;
   background: white;
   -webkit-background-clip: text;
+  background-clip: text;
   text-fill-color: transparent !important;
   transition: all 0.8s ease;
 }
